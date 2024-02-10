@@ -3,40 +3,23 @@ import java.util.Scanner;
 
 public class CatalogoDeFilmes {
     String nome;
-     static ArrayList<Filme> listaDeFilmes = new ArrayList<>();
-
-    public static void addFilme(Filme filme){
-        listaDeFilmes.add(filme);
-    }
+    public ArrayList<Filme> listaDeFilmes = new ArrayList<>();
 
     public CatalogoDeFilmes(String nome) {
         this.nome = nome;
     }
 
-    public String getNome() {
-        return nome;
+    public void addFilme(Filme filme){
+        listaDeFilmes.add(filme);
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public ArrayList<Filme> getFilme() {
-        return listaDeFilmes;
-    }
-
-    public void setFilme(ArrayList<Filme> filme) {
-        listaDeFilmes = filme;
-    }
-
-    static void criarFilme(){
+    void criarFilme(){
         Scanner scan = new Scanner(System.in);
 
         System.out.println("Qual é o nome do filme? ");
         String nome = scan.nextLine();
         Filme filme = new Filme(nome);
-
-        CatalogoDeFilmes.addFilme(filme);
+        addFilme(filme);
 
         System.out.println("Qual é o nome do diretor? ");
         String nomeNome = scan.nextLine();

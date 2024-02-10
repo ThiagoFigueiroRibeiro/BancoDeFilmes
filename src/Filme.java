@@ -9,16 +9,16 @@ public class Filme {
         return listaDeAtores;
     }
 
-    public void addAtor(Ator ator){
-        listaDeAtores.add(ator);
-        for (int i = 0 ; i <  listaDeAtores.size(); i++) {
-            System.out.println(listaDeAtores.get(i).getNome());
-        }
-    }
+    //public void addAtor(Ator ator){
+    //    listaDeAtores.add(ator);
+    //    for (int i = 0 ; i <  listaDeAtores.size(); i++) {
+    //        System.out.println(listaDeAtores.get(i).getNome());
+    //    }
+    //}
 
-    public void setListaDeAtores(ArrayList<Ator> listaDeAtores) {
-        this.listaDeAtores = listaDeAtores;
-    }
+    // public void setListaDeAtores(ArrayList<Ator> listaDeAtores) {
+    //    this.listaDeAtores = listaDeAtores;
+    //}
 
     Filme(String nome) {
         this.nome = nome;
@@ -28,9 +28,9 @@ public class Filme {
         return nome;
     }
 
-    void setNome(String nome) {
-        this.nome = nome;
-    }
+    //void setNome(String nome) {
+    //    this.nome = nome;
+    //}
 
      Diretor getDiretor() {
         return diretor;
@@ -40,14 +40,14 @@ public class Filme {
         this.diretor = diretor;
     }
 
-    void status(){
-        System.out.println("Nome do filme: " + getNome());
-        System.out.println("Nome do diretor: " + getDiretor().getNome());
-        System.out.print("Nome dos atores: ");
-        for (int i = 0 ; i <  listaDeAtores.size(); i++) {
-             System.out.print( listaDeAtores.get(i).nome+ " ");
-        }
-        System.out.println("");
-    }
+    //void status(){
+    //    System.out.println("Nome do filme: " + getNome());
+    //    System.out.println("Nome do diretor: " + getDiretor().getNome());
+    //    System.out.print("Nome dos atores: ");
+    //    for (int i = 0 ; i <  listaDeAtores.size(); i++) {
+    //         System.out.print( listaDeAtores.get(i).nome+ " ");
+    //    }
+    //    System.out.println("");
+    //}
 
 }
