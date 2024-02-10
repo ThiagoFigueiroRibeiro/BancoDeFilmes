@@ -1,19 +1,17 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class CatalogoDeFilmes {
-    String nome;
-    public ArrayList<Filme> listaDeFilmes = new ArrayList<>();
+class CatalogoDeFilmes {
+    protected ArrayList<Filme> listaDeFilmes = new ArrayList<>();
 
-    public CatalogoDeFilmes(String nome) {
-        this.nome = nome;
+    protected CatalogoDeFilmes() {
     }
 
-    public void addFilme(Filme filme){
+    protected void addFilme(Filme filme){
         listaDeFilmes.add(filme);
     }
 
-    void criarFilme(){
+    protected void criarFilme(){
         Scanner scan = new Scanner(System.in);
 
         System.out.println("Qual é o nome do filme? ");

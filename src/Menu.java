@@ -1,59 +1,55 @@
 import java.util.Scanner;
 
-public class Menu {
-    String nome;
-    CatalogoDeFilmes catalogo;
+class Menu {
+    protected CatalogoDeFilmes catalogo;
 
-    public Menu(String nome, CatalogoDeFilmes catalogo) {
-        this.nome = nome;
+    protected  Menu(CatalogoDeFilmes catalogo) {
         this.catalogo = catalogo;
     }
 
     // Variáveis para o método busca
-    boolean achou = false;
-    int posicao = 0;
+    protected boolean achou = false;
+    protected int posicao = 0;
     // ===============
 
-    void program(){
+    protected void program(){
         Scanner scan = new Scanner(System.in);
         while (true){
             Interface();
-            int escolha = scan.nextInt();
+            String escolha = scan.nextLine();
             try {
-                if      (escolha == 1) {catalogo.criarFilme();}
-                else if (escolha == 2) {
-                    System.out.println("Qual é o nome do filme que você procura? " );
-                    Scanner newScan = new Scanner(System.in);
-                    String nomeDoFilme = newScan.nextLine();
-                    achou = false;
-                    busca(nomeDoFilme);
-                    if (achou){
-                        System.out.println("Posição: " + posicao);
-                        status(posicao);
+                switch (escolha) {
+                    case "1" -> catalogo.criarFilme();
+                    case "2" -> {
+                        System.out.println("Qual é o nome do filme que você procura? ");
+                        Scanner newScan = new Scanner(System.in);
+                        String nomeDoFilme = newScan.nextLine();
+                        achou = false;
+                        busca(nomeDoFilme);
+                        if (achou) {
+                            System.out.println("Posição: " + posicao);
+                            status(posicao);
+                        } else {
+                            System.out.println("Não achei esse filme.");
+                        }
                     }
-                    else {
-                        System.out.println("Não achei esse filme.");
-                    }
+                    case "3" -> statusAll();
+                    case "4" -> System.exit(0);
+                    default -> System.out.println("Tente novamente.");
                 }
-                else if (escolha == 3){
-                    statusAll();
-                }
-                else if (escolha == 4){
-                    System.exit(0);
-                }
-            }catch(Exception exception){
+            }catch(Throwable t){
                 System.out.println("Tente novamente.");
             }
         }
     }
-     void Interface(){
+    protected void Interface(){
          System.out.println("1 - Cadastrar Filme ");
          System.out.println("2 - Procurar Filme ");
          System.out.println("3 - Ver as informações de todos os filmes cadastrados ");
          System.out.print("Digite a opção desejada: ");
      }
 
-    void statusAll(){
+    protected void statusAll(){
         for (int i = 0; i < catalogo.listaDeFilmes.size(); i++) {
             System.out.println("ID: " + i);
             System.out.println("Filme: " + catalogo.listaDeFilmes.get(i).getNome());
@@ -64,7 +60,7 @@ public class Menu {
             }
         }
     }
-    void status(int i){
+    protected void status(int i){
         System.out.println("Filme: " + catalogo.listaDeFilmes.get(i).getNome());
         System.out.println("Diretor: " + catalogo.listaDeFilmes.get(i).getDiretor().getNome());
 
@@ -73,7 +69,7 @@ public class Menu {
         }
     }
 
-    public void busca(String nome){
+    protected  void busca(String nome){
         for (int i = 0; i < catalogo.listaDeFilmes.size(); i++) {
             if(catalogo.listaDeFilmes.get(i).getNome().contains(nome)){
                 posicao = i;

@@ -1,11 +1,11 @@
-public class Ator {
-    String nome;
+class Ator {
+    final private String nome;
 
-    public Ator(String nome) {
+    protected Ator(String nome) {
         this.nome = nome;
     }
 
-    public String getNome() {
+    protected String getNome() {
         return nome;
     }
 

@@ -1,16 +1,12 @@
+class Diretor {
+    final private String nome;
 
-public class Diretor {
-    String nome;
-
-    public Diretor(String nome) {
+    protected Diretor(String nome) {
         this.nome = nome;
     }
 
-    public String getNome() {
+    protected String getNome() {
         return nome;
     }
 
-    //public void setNome(String nome) {
-    //    this.nome = nome;
-    //}
 }
