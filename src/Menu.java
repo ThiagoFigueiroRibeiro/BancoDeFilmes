@@ -34,7 +34,23 @@ class Menu {
                         }
                     }
                     case "3" -> statusAll();
-                    case "4" -> System.exit(0);
+                    case "4" -> {
+                        System.out.println("Qual é o nome do ator que você procura? ");
+                        Scanner scanAtor = new Scanner(System.in);
+                        String nomeDoAtor = scanAtor.nextLine();
+                        for (int i = 0; i < catalogo.listaDeAtoresGeral.size()+1; i++) {
+                            //System.out.println("Indice: " + i);;
+                            //listaDeAtoresGeral.get(i);
+
+                            if (catalogo.listaDeAtoresGeral.get(i).getNome().equals(nomeDoAtor)) {
+                                catalogo.listaDeAtoresGeral.get(i).getFilmesDesseAtor();
+                            }
+                        }
+                    }
+                    case "0" -> {
+                        scan.close();
+                        System.exit(0);
+                    }
                     default -> System.out.println("Tente novamente.");
                 }
             }catch(Throwable t){
@@ -46,7 +62,12 @@ class Menu {
          System.out.println("1 - Cadastrar Filme ");
          System.out.println("2 - Procurar Filme ");
          System.out.println("3 - Ver as informações de todos os filmes cadastrados ");
+         System.out.println("4 - Procurar Ator ");
+         System.out.println("0 - Sair do Programa ");
+         System.out.println("Atores cadastrados: " + catalogo.listaDeAtoresGeral.size());
+         System.out.println("Filmes cadastrados: " + catalogo.listaDeFilmes.size());
          System.out.print("Digite a opção desejada: ");
+
      }
 
     protected void statusAll(){
