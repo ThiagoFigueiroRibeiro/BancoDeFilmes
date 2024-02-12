@@ -1,10 +1,10 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 class CatalogoDeFilmes {
     protected ArrayList<Filme> listaDeFilmes = new ArrayList<>();
     protected ArrayList<Ator> listaDeAtoresGeral = new ArrayList<>();
+    protected ArrayList<Diretor> listaDeDiretoresGeral = new ArrayList<>();
 
     protected CatalogoDeFilmes() {
     }
@@ -12,7 +12,6 @@ class CatalogoDeFilmes {
     protected void addFilme(Filme filme){
         listaDeFilmes.add(filme);
     }
-
     protected void criarFilme(){
         Scanner scan = new Scanner(System.in);
 
@@ -25,16 +24,17 @@ class CatalogoDeFilmes {
         String nomeDiretor = scan.nextLine();
         Diretor novoDiretor = new Diretor(nomeDiretor);
         filme.setDiretor(novoDiretor);
+        novoDiretor.addFilmesDesseDiretor(filme);
+        listaDeDiretoresGeral.add(novoDiretor);
 
         System.out.println("Quantos atores você deseja cadastrar pra esse filme?");
-        //try{
-        //    int numeroDeAtores = scan.nextInt();
-        //}
-        //catch (Throwable t){
-        //    System.out.println("Por favor, escreva um número");
-        //}
+        Scanner scanInt = new Scanner(System.in);
+        int numeroDeAtores = scanInt.nextInt();
 
-        System.out.println("Qual é o nome de um ator? ");
+        for (int j = 0; j< numeroDeAtores; j++){
+            System.out.println("Qual é o nome do ator? ");
+
+
         String nomeDoAtor = scan.nextLine();
         Ator atorAtual = new Ator(nomeDoAtor);
         filme.listaDeAtores.add(atorAtual);
@@ -49,6 +49,7 @@ class CatalogoDeFilmes {
                     break;
                 }
             }
+        }
         }
     }
 }
