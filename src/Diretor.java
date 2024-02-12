@@ -19,7 +19,7 @@ class Diretor {
         }
     }
 
-    protected void addFilmesDesseDiretor(Filme filme) {
+    protected void addFilmeAoDiretor(Filme filme) {
         filmesDesseDiretor.add(filme);
     }
 
