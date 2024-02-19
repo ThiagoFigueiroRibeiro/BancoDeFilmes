@@ -1,24 +1,12 @@
 import java.util.ArrayList;
-
-class Diretor {
-    final private String nome;
-
+class Diretor extends Pessoa{
     protected ArrayList<Filme> filmesDesseDiretor = new ArrayList<>();
-
-    protected Diretor(String nome) {
-        this.nome = nome;
-    }
-
-    protected String getNome() {
-        return nome;
-    }
-
+    protected Diretor(String nome){super(nome);}
     protected void getFilmesDesseDiretor() {
         for (Filme filme : filmesDesseDiretor) {
             System.out.println("Filme: " + filme.getNome());
         }
     }
-
     protected void addFilmeAoDiretor(Filme filme) {
         filmesDesseDiretor.add(filme);
     }

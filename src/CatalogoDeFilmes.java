@@ -5,10 +5,7 @@ class CatalogoDeFilmes {
     protected ArrayList<Filme> listaDeFilmes = new ArrayList<>();
     protected ArrayList<Ator> listaDeAtoresGeral = new ArrayList<>();
     protected ArrayList<Diretor> listaDeDiretoresGeral = new ArrayList<>();
-
-    protected CatalogoDeFilmes() {
-    }
-
+    protected CatalogoDeFilmes(){}
     protected void addFilme(Filme filme){
         listaDeFilmes.add(filme);
     }
@@ -16,12 +13,12 @@ class CatalogoDeFilmes {
         Scanner scan = new Scanner(System.in);
 
         System.out.println("Qual é o nome do filme? ");
-        String nome = scan.nextLine();
+        String nome = scan.nextLine().toUpperCase();
         Filme filme = new Filme(nome);
         addFilme(filme);
 
         System.out.println("Qual é o nome do diretor? ");
-        String nomeDiretor = scan.nextLine();
+        String nomeDiretor = scan.nextLine().toUpperCase();
         Diretor novoDiretor = new Diretor(nomeDiretor);
         filme.setDiretor(novoDiretor);
         listaDeDiretoresGeral.add(novoDiretor);
@@ -41,7 +38,7 @@ class CatalogoDeFilmes {
         int numeroDeAtores = scanInt.nextInt();
         for (int j = 0; j< numeroDeAtores; j++){
             System.out.println("Qual é o nome do ator? ");
-            String nomeDoAtor = scan.nextLine();
+            String nomeDoAtor = scan.nextLine().toUpperCase();
             Ator atorAtual = new Ator(nomeDoAtor);
             filme.listaDeAtores.add(atorAtual);
             listaDeAtoresGeral.add(atorAtual);
