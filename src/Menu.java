@@ -1,16 +1,17 @@
 import java.util.Scanner;
 class Menu {
-    protected CatalogoDeFilmes catalogo;
+    CatalogoDeFilmes catalogo;
     // Variáveis para o método busca
-    protected boolean achou = false;
-    protected int posicao = 0;
-    public static final String ANSI_YELLOW = "\u001B[33m";
-    public static final String ANSI_RESET = "\u001B[0m";
-    protected  Menu(CatalogoDeFilmes catalogo) {
+    private boolean achou = false;
+    private int posicao = 0;
+    // Cores para os avisos
+    private static final String ANSI_YELLOW = "\u001B[33m";
+    private static final String ANSI_RESET = "\u001B[0m";
+    Menu(CatalogoDeFilmes catalogo) {
         this.catalogo = catalogo;
     }
     // ===============
-    protected void program(){
+     void program(){
         Scanner scan = new Scanner(System.in);
         while (true){
             Interface();
@@ -81,7 +82,7 @@ class Menu {
             }
         }
     }
-    protected void Interface(){
+    private void Interface(){
          System.out.println("1 - Cadastrar Filme ");
          System.out.println("2 - Procurar Filme ");
          System.out.println("3 - Procurar Ator ");
@@ -92,8 +93,8 @@ class Menu {
          System.out.println("Filmes cadastrados: " + catalogo.listaDeFilmes.size());
          System.out.println("Diretores cadastrados: " + catalogo.listaDeDiretoresGeral.size());
          System.out.print("Digite a opção desejada: ");
-     }
-    protected void statusAll(){
+    }
+    private void statusAll(){
         for (int i = 0; i < catalogo.listaDeFilmes.size(); i++) {
             System.out.println(ANSI_YELLOW + "ID: " + i + ANSI_RESET);
             System.out.println("Filme: " + catalogo.listaDeFilmes.get(i).getNome());
@@ -105,7 +106,7 @@ class Menu {
             System.out.println();
         }
     }
-    protected void status(int i){
+    private void status(int i){
         System.out.println("Filme: " + catalogo.listaDeFilmes.get(i).getNome());
         System.out.println("Diretor: " + catalogo.listaDeFilmes.get(i).getDiretor().getNome());
 
@@ -113,7 +114,7 @@ class Menu {
             System.out.println("Ator: " + catalogo.listaDeFilmes.get(i).getListaDeAtores().get(j).getNome() + " ");
         }
     }
-    protected  void buscaFilme(String nome){
+    private void buscaFilme(String nome){
         for (int i = 0; i < catalogo.listaDeFilmes.size(); i++) {
             if(catalogo.listaDeFilmes.get(i).getNome().contains(nome)){
                 posicao = i;

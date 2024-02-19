@@ -3,7 +3,5 @@ class Pessoa {
     Pessoa(String nome) {
         this.nome = nome;
     }
-    protected String getNome() {
-        return nome;
-    }
+    String getNome() {return nome;}
 }

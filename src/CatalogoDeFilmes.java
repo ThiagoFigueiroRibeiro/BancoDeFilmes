@@ -2,14 +2,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 class CatalogoDeFilmes {
-    protected ArrayList<Filme> listaDeFilmes = new ArrayList<>();
-    protected ArrayList<Ator> listaDeAtoresGeral = new ArrayList<>();
-    protected ArrayList<Diretor> listaDeDiretoresGeral = new ArrayList<>();
-    protected CatalogoDeFilmes(){}
-    protected void addFilme(Filme filme){
+     ArrayList<Filme> listaDeFilmes = new ArrayList<>();
+     ArrayList<Ator> listaDeAtoresGeral = new ArrayList<>();
+     ArrayList<Diretor> listaDeDiretoresGeral = new ArrayList<>();
+     CatalogoDeFilmes(){}
+     void addFilme(Filme filme){
         listaDeFilmes.add(filme);
     }
-    protected void criarFilme(){
+     void criarFilme(){
         Scanner scan = new Scanner(System.in);
 
         System.out.println("Qual é o nome do filme? ");
